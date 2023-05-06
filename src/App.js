@@ -48,6 +48,10 @@ function App() {
 
   return (
     <div className="App">
+<Container>
+<Home />
+</Container>
+
       <Container>
         <Row>
           <Col> <ConnectWallet /></Col>
@@ -84,21 +88,22 @@ function App() {
                 />
               </Form.Group>
               <Button variant="primary" onClick={handleTransfer} disabled={transactionInProgress}>
-                Send EVLOS_ALPHA
+                Send EvlosAlpha
               </Button>
               {transactionInProgress && (
                 <Spinner animation="border" role="status">
-                  <span className="sr-only">Transaction in progress...</span>
-                </Spinner>
+                <span className="sr-only" style={{ position: 'absolute', clip: 'rect(1px, 1px, 1px, 1px)' }}>
+                  Transaction in progress...
+                </span>
+              </Spinner>
               )}
             </Form>
           </Col>
         </Row>
       </Container>
-
-      <Home />
+<hr></hr>
       <Container>
-        Loaded from Google Sheet:
+        The available rewards below are being loaded from Google Sheets:
         {rewardNFTData.map((nft, index) => (
           <RewardNFT key={index} {...nft} />
         ))}
